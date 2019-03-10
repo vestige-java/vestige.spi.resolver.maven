@@ -25,4 +25,6 @@ public interface MavenContext {
 
     ResolveMavenArtifactRequest resolve(ResolveMode resolveMode, Scope scope, String groupId, String artifactId, String version, String name);
 
+    ResolveMavenArtifactRequest resolve(ResolveMode resolveMode, Scope scope, String groupId, String artifactId, String version, String extension, String name);
+
 }
