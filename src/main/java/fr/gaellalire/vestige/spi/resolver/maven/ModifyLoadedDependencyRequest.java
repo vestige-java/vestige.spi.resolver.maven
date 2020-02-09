@@ -18,20 +18,15 @@ package fr.gaellalire.vestige.spi.resolver.maven;
 
 /**
  * @author Gael Lalire
+ * @since 2.0
  */
-public interface ModifyDependencyRequest {
+public interface ModifyLoadedDependencyRequest {
 
-    /**
-     * @since 2.0
-     */
-    void removeDependency(String groupId, String artifactId, String extension);
+    void setBeforeParent(boolean beforeParent);
 
-    void addDependency(String groupId, String artifactId, String version);
+    void addExports(String moduleName, String packageName);
 
-    /**
-     * @since 2.0
-     */
-    void addDependency(String groupId, String artifactId, String version, String extension);
+    void addOpens(String moduleName, String packageName);
 
     void execute();
 }

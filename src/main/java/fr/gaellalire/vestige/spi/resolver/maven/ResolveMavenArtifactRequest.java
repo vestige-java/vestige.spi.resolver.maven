@@ -17,25 +17,21 @@
 package fr.gaellalire.vestige.spi.resolver.maven;
 
 import fr.gaellalire.vestige.spi.job.JobHelper;
-import fr.gaellalire.vestige.spi.resolver.ResolvedClassLoaderConfiguration;
 import fr.gaellalire.vestige.spi.resolver.ResolverException;
-import fr.gaellalire.vestige.spi.resolver.Scope;
 
 /**
  * @author Gael Lalire
  */
 public interface ResolveMavenArtifactRequest {
 
-    void addModifyScope(String groupId, String artifactId, Scope scope);
+    /**
+     * @since 2.0
+     */
+    void setExtension(String extension);
 
-    void setNamedModuleActivated(boolean namedModuleActivated);
-
-    void addReads(String source, String target);
-
-    void addExports(String source, String pn, String target);
-
-    void addOpens(String source, String pn, String target);
-
-    ResolvedClassLoaderConfiguration execute(JobHelper jobHelper) throws ResolverException;
+    /**
+     * @since 2.0
+     */
+    ResolvedMavenArtifact execute(JobHelper jobHelper) throws ResolverException;
 
 }

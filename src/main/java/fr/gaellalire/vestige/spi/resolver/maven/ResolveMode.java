@@ -24,6 +24,6 @@ public enum ResolveMode {
 
     FIXED_DEPENDENCIES,
 
-    CLASSPATH,
+    CLASSPATH;
 
 }

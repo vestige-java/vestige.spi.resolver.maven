@@ -27,7 +27,10 @@ public interface MavenContextBuilder {
 
     ReplaceDependencyRequest addReplaceDependency(String groupId, String artifactId);
 
-    void setSuperPomRepositoriesUsed(boolean superPomRepositoriesUsed);
+    /**
+     * @since 2.0
+     */
+    void setSuperPomRepositoriesIgnored(boolean superPomRepositoriesIgnored);
 
     void setPomRepositoriesIgnored(boolean pomRepositoriesIgnored);
 

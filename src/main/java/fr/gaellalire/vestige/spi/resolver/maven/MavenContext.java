@@ -16,15 +16,14 @@
 
 package fr.gaellalire.vestige.spi.resolver.maven;
 
-import fr.gaellalire.vestige.spi.resolver.Scope;
-
 /**
  * @author Gael Lalire
  */
 public interface MavenContext {
 
-    ResolveMavenArtifactRequest resolve(ResolveMode resolveMode, Scope scope, String groupId, String artifactId, String version, String name);
-
-    ResolveMavenArtifactRequest resolve(ResolveMode resolveMode, Scope scope, String groupId, String artifactId, String version, String extension, String name);
+    /**
+     * @since 2.0
+     */
+    ResolveMavenArtifactRequest resolve(String groupId, String artifactId, String version);
 
 }

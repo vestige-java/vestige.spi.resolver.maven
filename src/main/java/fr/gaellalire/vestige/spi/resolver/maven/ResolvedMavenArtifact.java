@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 The Apache Software Foundation.
+ * Copyright 2019 The Apache Software Foundation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,22 +16,30 @@
 
 package fr.gaellalire.vestige.spi.resolver.maven;
 
+import java.util.Enumeration;
+
+import fr.gaellalire.vestige.spi.resolver.ResolverException;
+import fr.gaellalire.vestige.spi.resolver.Scope;
+import fr.gaellalire.vestige.spi.resolver.VestigeJar;
+
 /**
  * @author Gael Lalire
+ * @since 2.0
  */
-public interface ModifyDependencyRequest {
+public interface ResolvedMavenArtifact {
 
-    /**
-     * @since 2.0
-     */
-    void removeDependency(String groupId, String artifactId, String extension);
+    String getGroupId();
 
-    void addDependency(String groupId, String artifactId, String version);
+    String getArtifactId();
 
-    /**
-     * @since 2.0
-     */
-    void addDependency(String groupId, String artifactId, String version, String extension);
+    String getVersion();
 
-    void execute();
+    String getExtension();
+
+    Enumeration<? extends ResolvedMavenArtifact> getDependencies() throws ResolverException;
+
+    VestigeJar getVestigeJar();
+
+    CreateClassLoaderConfigurationRequest createClassLoaderConfiguration(String name, ResolveMode mode, Scope scope);
+
 }

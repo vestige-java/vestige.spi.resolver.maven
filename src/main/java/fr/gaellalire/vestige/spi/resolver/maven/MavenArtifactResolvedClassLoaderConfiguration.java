@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 The Apache Software Foundation.
+ * Copyright 2019 The Apache Software Foundation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,22 +16,15 @@
 
 package fr.gaellalire.vestige.spi.resolver.maven;
 
+import fr.gaellalire.vestige.spi.resolver.ResolvedClassLoaderConfiguration;
+import fr.gaellalire.vestige.spi.resolver.VestigeJar;
+
 /**
  * @author Gael Lalire
+ * @since 2.0
  */
-public interface ModifyDependencyRequest {
+public interface MavenArtifactResolvedClassLoaderConfiguration extends ResolvedClassLoaderConfiguration {
 
-    /**
-     * @since 2.0
-     */
-    void removeDependency(String groupId, String artifactId, String extension);
+    VestigeJar getArtifactJar();
 
-    void addDependency(String groupId, String artifactId, String version);
-
-    /**
-     * @since 2.0
-     */
-    void addDependency(String groupId, String artifactId, String version, String extension);
-
-    void execute();
 }
