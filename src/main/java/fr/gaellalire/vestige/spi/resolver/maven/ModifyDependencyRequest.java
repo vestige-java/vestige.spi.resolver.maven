@@ -33,5 +33,10 @@ public interface ModifyDependencyRequest {
      */
     void addDependency(String groupId, String artifactId, String version, String extension);
 
+    /**
+     * @since 2.1
+     */
+    void setPatch(final String groupId, final String artifactId, final String version);
+
     void execute();
 }
